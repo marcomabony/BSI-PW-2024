@@ -52,5 +52,6 @@ O projeto possui os seguintes requisitos funcionais e não funcionais:
 
 # Colaboradores 
 
+* [Miguel Ângelo Pinheiro Fernandes  ](https://github.com/MiguelFernandes20)
 * [Marco Filipe Mabony ](https://github.com/marcomabony)
 
