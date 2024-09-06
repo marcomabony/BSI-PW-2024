@@ -1,0 +1,155 @@
+    /* Define a estilização global do corpo da página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Necessário para que o botão "Voltar" seja posicionado relativamente ao corpo da página */
+}
+
+/* Contêiner para o botão "Voltar" */
+.back-button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Estilização do botão "Voltar" */
+.back-button {
+    padding: 10px 25px; /* Ajusta o padding para ficar mais próximo ao exemplo */
+    font-size: 18px; /* Aumenta o tamanho da fonte para ficar mais próximo ao exemplo */
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px; /* Aumenta o arredondamento do botão "Voltar" */
+    text-transform: uppercase; /* Garante que o texto esteja em letras maiúsculas */
+}
+
+/* Estilização do botão "Voltar" ao passar o mouse */
+.back-button:hover {
+    background-color: #333333; /* Cor do botão ao passar o mouse */
+}
+
+/* Contêiner principal de login */
+.login-container {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 60px 40px; /* Ajusta o padding para se aproximar do exemplo */
+    border-radius: 0px; /* Arredonda as bordas do contêiner de login */
+    width: 450px; /* Ajusta a largura do contêiner de login */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos dentro do contêiner de login */
+}
+
+/* Estilização do título (h2) */
+h2 {
+    margin-bottom: 25px; /* Ajusta o espaçamento abaixo do título */
+    font-weight: 700;
+    font-size: 24px; /* Aumenta o tamanho da fonte do título */
+}
+
+/* Grupo de entrada (input) */
+.input-group {
+    margin-bottom: 20px; /* Aumenta o espaço entre os grupos de input */
+    text-align: left;
+    width: 100%; /* Garante que os inputs ocupem toda a largura do contêiner de login */
+}
+
+/* Estilização do rótulo (label) */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilização dos campos de entrada (email e senha) */
+input[type="email"], input[type="password"] {
+    width: calc(100% - 2px); /* Ajusta a largura das caixas de texto */
+    padding: 15px; /* Ajusta o padding das caixas de texto */
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Arredonda as bordas das caixas de texto */
+    font-size: 18px; /* Aumenta o tamanho da fonte nas caixas de texto */
+    box-sizing: border-box; /* Garante que o padding seja incluído na largura total */
+}
+
+/* Contêiner da senha e ícone de alternância */
+.password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.password-container input[type="password"] {
+    padding-right: 50px; /* Ajusta o espaço para o ícone de olho */
+}
+
+/* Estilização do ícone de alternância da senha */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px; /* Aumenta o tamanho do ícone */
+    color: #555555;
+}
+
+/* Estilização do botão de submissão e botão do Google */
+button[type="submit"], .google-button {
+    width: 100%;
+    padding: 18px; /* Aumenta o tamanho dos botões */
+    margin-bottom: 25px; /* Aumenta o espaço entre o botão "Entrar" e o botão "Entrar com Google" */
+    border: none;
+    border-radius: 25px; /* Aumenta o arredondamento dos botões */
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px; /* Aumenta o tamanho da fonte dos botões */
+    font-weight: 700;
+}
+
+.cadastrar-button {
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cadastrar-button:hover {
+    background-color: #e0e0e0;
+}
+
+.google-button {
+    margin-bottom: 35px; /* Espaçamento adicional para o botão "Entrar com Google" */
+}
+
+/* Estilização específica para o botão do Google */
+.google-button {
+    background-color: #050505;
+    color: #fefdfd;
+    border: 1px solid #faf8f8;
+}
+
+/* Estilização do link "Esqueceu a senha?" */
+.forgot-password {
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center; /* Centraliza o link "Esqueceu a senha?" */
+    display: block; /* Garante que ocupe toda a largura disponível */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+}
+
+/* Estilização do link "Esqueceu a senha?" ao passar o mouse */
+.forgot-password:hover {
+    text-decoration: underline;
+}

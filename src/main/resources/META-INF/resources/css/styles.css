@@ -1,0 +1,166 @@
+/* Resetando margens e preenchimentos padrão do body e html */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden; /* Previne rolagem na página */
+    
+}
+
+.user-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-menu {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 0;
+    top: 60px;
+    z-index: 100;
+}
+
+.dropdown-item {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.dropdown-item:hover {
+    color: #ff0000;
+}
+
+
+/* Estilização da imagem de fundo da página */
+.background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(../img/pexels-beytlik-6525965.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Estilização da área de conteúdo */
+.content {
+    text-align: center;
+    color: #e6e5e5;
+}
+
+/* Ajuste do título principal */
+h1 {
+    font-size: 80px;
+    padding-top: 1%; /* Move o título para baixo */
+    margin-bottom: 1px; /* Espaçamento entre o título e o subtítulo */
+}
+
+/* Ajuste do subtítulo */
+p {
+    font-size: 20px;
+    padding-top: 2%; /* Move o subtítulo para baixo, se necessário */
+    margin-bottom: 80px; /* Espaçamento maior entre o subtítulo e a caixa de texto */
+}
+
+/* Ajuste da caixa de texto */
+.textbox {
+    padding-top: 2%; /* Espaçamento superior para a caixa de texto */
+    margin: 0 auto;
+    padding: 60px;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    height: 200px;
+    color: white;
+    font-size: 18px;
+    text-align: left;
+    overflow-y: auto;
+    position: relative;
+    resize: none;
+}
+
+/* Estilo do placeholder (texto que aparece quando a caixa está vazia) */
+.textbox::before {
+    content: attr(data-placeholder);
+    position: absolute;
+    color: gray;
+    font-style: italic;
+    top: 20px;
+    left: 20px;
+    pointer-events: none;
+}
+
+/* Esconde o placeholder quando a caixa de texto é focada */
+.textbox:focus::before {
+    display: none;
+}
+
+/* Estilização das instruções abaixo da caixa de verificação */
+.instructions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+    padding: 0 10%;
+    font-size: 16px;
+}
+
+/* Estilização de cada item de instrução */
+.instruction-item {
+    text-align: center;
+    max-width: 250px;
+}
+
+/* Estilização dos ícones dentro das instruções */
+.instruction-item img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Espaçamento entre o ícone e o texto em cada instrução */
+.instruction-item p {
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15.88px;
+    color: #C1C0B4;
+}

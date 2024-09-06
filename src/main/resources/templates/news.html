@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Notícias</title>
+    <link rel="stylesheet" href="../css/verificarFakeNews.css">
+</head>
+<body>
+<h1>Lista de Notícias Verificadas</h1>
+<ul id="newsList"></ul>
+
+<script>
+    // Função para buscar notícias
+    function carregarNoticias() {
+        fetch('/api/news/listar') // Aqui usamos o método GET para buscar as notícias
+            .then(response => response.json())
+            .then(noticias => {
+                const newsList = document.getElementById('newsList');
+                newsList.innerHTML = ''; // Limpar a lista antes de adicionar novas notícias
+                noticias.forEach(noticia => {
+                    const li = document.createElement('li');
+                    li.textContent = `Notícia: ${noticia.content} - Status: ${noticia.isFake ? 'Falsa' : 'Verdadeira'}`;
+                    newsList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Erro ao buscar as notícias:', error));
+    }
+
+    // Chama a função ao carregar a página
+    document.addEventListener('DOMContentLoaded', carregarNoticias);
+</script>
+</body>
+</html>

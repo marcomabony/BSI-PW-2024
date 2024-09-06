@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias Verificadas</title>
+    <link rel="stylesheet" href="../css/historicoVerificadas.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="active">Notícias Verificadas</li>
+            </ul>
+        </aside>
+        <main class="content">
+            <header class="header">
+                <h1>Notícias Verificadas</h1>
+                <div class="../img/user-profile">
+                    <img src="../img/user-image.jpg" alt="Foto do Usuário" class="user-avatar">
+                    <span class="user-name">Marcia</span>
+                    <button class="dropdown-btn" id="dropdownBtn">
+                        <span class="dropdown-icon">▼</span>
+                    </button>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <a href="#" class="dropdown-item">Sair</a>
+                    </div>
+                </div>
+            </header>
+            <section class="verified-news">
+                <div class="news-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Título da Notícia</th>
+                                <th>Status</th>
+                                <th>Data de Verificação</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="news-title">A circulação de um comunicado</td>
+                                <td><span class="status-fato">FATO</span></td>
+                                <td>15 Mar 2021, 12:47 PM</td>
+                                <td><button class="view-btn" data-news="1">Visualizar</button></td>
+                            </tr>
+                            <tr class="full-text" id="text-news-1" style="display:none;">
+                                <td colspan="5">
+                                    <p>Texto completo da notícia sobre a circulação de um comunicado. Aqui está um exemplo de como o texto completo pode ser exibido.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="news-title">Post falso sobre vacina</td>
+                                <td><span class="status-fake">FAKE</span></td>
+                                <td>16 Mar 2021, 09:30 AM</td>
+                                <td><button class="view-btn" data-news="2">Visualizar</button></td>
+                            </tr>
+                            <tr class="full-text" id="text-news-2" style="display:none;">
+                                <td colspan="5">
+                                    <p>Texto completo da notícia sobre o post falso sobre vacina. Aqui está um exemplo de como o texto completo pode ser exibido.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para visualizar notícia -->
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Título da Notícia</h2>
+            <p id="modalText">Aqui estará o texto completo da notícia que foi verificada.</p>
+        </div>
+    </div>
+
+    <script src="../js/historicoVerificadas.js"></script>
+</body>
+</html>

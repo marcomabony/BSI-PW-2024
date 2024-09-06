@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Usuário - Acesso à Conta</title>
+    <link rel="stylesheet" href="../css/loginNovoUsuario.css">
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <h2>Guardian of the Truth</h2>
+        <ul>
+            <li><a href="#" class="active">Usuários</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <h2>Novo Usuário</h2>
+                <div class="breadcrumb">
+                    <a href="#">Usuário</a> > <span>Novo Usuário</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="form-section">
+            <div class="form-tabs">
+                <span class="tab">Informações de Login</span>
+            </div>
+
+            <form id="accountForm">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Endereço de email">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Senha">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" placeholder="Confirmar Senha">
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="cancel-btn" id="cancel-btn">Cancelar</button>
+                    <button type="submit" class="submit-btn">Adicionar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</div>
+
+<script src="../js/loginNovoUsuario.js"></script>
+</body>
+</html>

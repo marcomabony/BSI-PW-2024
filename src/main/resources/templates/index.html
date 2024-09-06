@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Fake News</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="user-container">
+        <div class="user-box" onclick="toggleMenu()">
+            <img src="../img/user-avatar.jpg" alt="Avatar" class="user-avatar">
+            <span class="user-name">Marcia</span>
+            <img src="../img/arrow-icon.png" alt="Arrow Icon" class="arrow-icon">
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="#" class="dropdown-item">Sair</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="background-image"></div>
+        <div class="content">
+            <h1>Verificador de Fake News</h1>
+            <p>O próximo passo para se tornar uma pessoa mais bem informada sobre fake news.</p>
+            <div class="textbox" id="textbox" contenteditable="true" data-placeholder="Cole sua notícia aqui..."></div>
+        </div>
+        <div class="instructions">
+            <div class="instruction-item">
+                <img src="../img/icon-paste.png" alt="Icone de Colar">
+                <p>Cole o texto da notícia na caixa de texto,<br>Certifique-se de colar notícias com mais de 100 caracteres.</p>
+            </div>
+            <div class="instruction-item">
+                <img src="../img/icon-analyze.png" alt="Icone de Analisar">
+                <p>O verificador de Fake News analisará o conteúdo fornecido e fornecerá um feedback indicando se a notícia pode ser falsa ou verdadeira.</p>
+            </div>
+            <div class="instruction-item">
+                <img src="../img/icon-info.png" alt="Icone de Informação">
+                <p>Agora você pode copiar o resultado e colá-lo em seu terminal ou interface de linha de comando.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

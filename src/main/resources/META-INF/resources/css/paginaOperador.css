@@ -1,0 +1,356 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #444;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    position: relative;
+}
+
+.sidebar ul li a.active {
+    background-color: #666;
+    font-weight: bold;
+}
+
+.sidebar ul li a.active::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: 5px;
+    background-color: #FFF;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.user-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #03030380;
+    border-radius: 8px;
+    background-color: #0d0d0d1a;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    color: #000;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: #ff0000;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header-buttons button:hover,
+.header-buttons button:focus {
+    background-color: #555;
+}
+
+.user-list {
+    margin-top: 20px;
+}
+
+.user-list input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.user-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+.user-list th, .user-list td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.user-list th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.user-list td {
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+.user-list .status-active {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    border-radius: 5px;
+}
+
+.user-list .status-inactive {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    border-radius: 5px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-controls button {
+    padding: 8px;
+    margin: 0 5px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.page-controls button:hover,
+.page-controls button:focus {
+    background-color: #bbb;
+}
+
+.new-user-form, .error-modal {
+    margin-top: 20px;
+}
+
+.error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #f8d7da;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content p {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #721c24;
+    line-height: 1.5;
+}
+
+.modal-content p:first-child {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.modal-content textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.modal-content textarea::placeholder {
+    color: #aaa;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 48%;
+    text-align: center;
+}
+
+.modal-actions #request-btn {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.modal-actions #request-btn:hover,
+.modal-actions #request-btn:focus {
+    background-color: #0056b3;
+}
+
+.modal-actions #cancel-btn {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.modal-actions #cancel-btn:hover,
+.modal-actions #cancel-btn:focus {
+    background-color: #5a6268;
+}
+
+.hidden {
+    display: none;
+}

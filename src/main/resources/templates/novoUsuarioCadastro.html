@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Usuário - Informações Pessoais</title>
+    <link rel="stylesheet" href="../css/novoUsuarioCadastro.css">
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <h2>Guardian of the Truth</h2>
+        <ul>
+            <li><a href="#" class="active">Usuários</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <h2>Novo Usuário</h2>
+                <div class="breadcrumb">
+                    <a href="#">Usuário</a> > <span>Novo Usuário</span>
+                </div>
+            </div>
+            <div class="user-container">
+            </div>
+        </header>
+
+        <section class="form-section">
+            <div class="form-tabs">
+                <span class="tab">Informações Pessoais</span>
+            </div>
+
+            <form id="userForm">
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <input type="text" id="nome" placeholder="Nome">
+                    </div>
+                    <div class="form-field">
+                        <input type="text" id="apelido" placeholder="Apelido">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <input type="tel" id="telefone" placeholder="Telefone">
+                    </div>
+                    <div class="form-field">
+                        <input type="email" id="celular" placeholder="Celular">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <input type="text"
+                               id="dataNascimento"
+                               placeholder="Data de Nascimento"
+                               onfocus="(this.type='date')"
+                               onblur="(this.type='text')">
+                    </div>
+                    <div class="form-field">
+                        <select id="estadoCivil">
+                            <option value="" disabled selected>Estado civil</option>
+                            <option value="solteiro">Solteiro</option>
+                            <option value="casado">Casado</option>
+                            <option value="divorciado">Divorciado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <select id="genero">
+                            <option value="" disabled selected>Gênero</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <input type="text" id="nacionalidade" placeholder="Nacionalidade">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <input type="text" id="cep" placeholder="CEP">
+                    </div>
+                    <div class="form-field">
+                        <input type="text" id="cidade" placeholder="Cidade">
+                    </div>
+                    <div class="form-field">
+                        <input type="text" id="estado" placeholder="Estado">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field full-width">
+                        <input type="text" id="endereco" placeholder="Endereço">
+                    </div>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="cancel-btn" id="cancel-btn">Voltar</button>
+                    <button type="button" class="next-btn" id="next-step">Avançar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</div>
+
+<script src="../js/novoUsuarioCadastro.js"></script>
+</body>
+</html>

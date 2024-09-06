@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Usuários - Verificador de Fake News</title>
+    <link rel="stylesheet" href="../css/paginaOperador.css">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h2>Guardian of the Truth</h2>
+        <ul>
+            <li><a href="#" id="usuarios" class="active">Usuários</a></li>
+            <li><a href="#" id="requisicoes" >Requisições</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="user-header">
+            <div class="user-box" onclick="toggleMenu()">
+                <img src="../img/upload-icon.png" alt="User Avatar" class="user-avatar">
+                <span class="user-name">Miguel</span>
+                <img src="../img/arrow-icon2.png" alt="Arrow Icon" class="arrow-icon">
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" onclick="logout()">
+                <a href="#" class="dropdown-item">Sair</a>
+            </div>
+        </div>
+        <div id="ui-usuario">
+            <header>
+                <h1>Usuários</h1>
+                <div class="header-buttons">
+                    <button id="new-user-btn">+ Novo Usuário</button>
+                </div>
+            </header>
+
+            <div id="user-list" class="user-list">
+                <input type="text" id="search-user" placeholder="Pesquisar...">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nome do Usuário</th>
+                        <th>ID</th>
+                        <th>Departamento</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                    </thead>
+                    <tbody id="user-table-body">
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <span>Mostrando</span>
+                    <select id="items-per-page">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                    <span>de 60 registros</span>
+                    <div class="page-controls">
+                        <button>&lt;</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ui-requests" class="hidden">
+            <header>
+                <h1>Requisições</h1>
+            </header>
+
+            <div id="user-list" class="user-list">
+                <input type="text" id="search-user" placeholder="Pesquisar...">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                    </thead>
+                    <tbody id="user-table-body">
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <span>Mostrando</span>
+                    <select id="items-per-page">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                    <span>de 60 registros</span>
+                    <div class="page-controls">
+                        <button>&lt;</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="error-modal" class="error-modal hidden">
+    <div class="modal-content">
+        <p><strong>Não é possível excluir esse usuário.</strong></p>
+        <p>Você não tem permissão para essa ação. Por favor, solicite a exclusão ao Administrador Geral.</p>
+        <textarea id="exclusion-reason" placeholder="Digite o motivo da solicitação"></textarea>
+        <div class="modal-actions">
+            <button id="request-btn">Solicitar</button>
+            <button id="cancel-btn">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script src="../js/painelOperador.js"></script>
+</body>
+</html>
