@@ -1,6 +1,6 @@
 package br.edu.ifg.luziania.model.entity;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +15,20 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb005_user")
-public class Usuario extends PanacheEntity {
+public class Usuario extends PanacheEntityBase {
+
+    @Id
+    @SequenceGenerator(
+            name = "usuarioSeq",
+            sequenceName = "sq005_usuario_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "usuarioSeq"
+    )
+    public Long id;
+
 
     @Column(nullable = false)
     private String nome;

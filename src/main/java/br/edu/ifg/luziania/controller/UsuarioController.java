@@ -12,6 +12,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
+import java.util.Map;
 
 @Path("usuario")
 public class UsuarioController {
@@ -78,6 +79,24 @@ public class UsuarioController {
                     .entity(new ResponseUsuarioDTO(false, e.getMessage())).build();
         }
     }
+
+    @POST
+    @Path("alterarRole/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response alterarRole(@PathParam("id") Long id, Map<String, String> roleData){
+        try {
+            String novaRole = roleData.get("role");
+            usuarioBO.alterarRole(id, novaRole);
+            return Response.ok()
+                    .entity(new ResponseUsuarioDTO(true,
+                            "Role alterada com sucesso!")).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity(new ResponseUsuarioDTO(false, e.getMessage())).build();
+        }
+    }
+
 
 
 }

@@ -62,13 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
         userTableBody.innerHTML = '';
 
         users.forEach(user => {
-            const newRow = document.createElement('tr');
+            const newRow = document.createElement('tr');  // Criando a nova linha
             const statusClass = user["active"] ? "status-active" : "status-inactive";
+            const currentRole = user["roles"][0]; // Supondo que está usando apenas uma role
 
             newRow.innerHTML = `
             <td>${user["nome"]}</td>
             <td>${user["email"]}</td>
-            <td>${user["roles"][0]}</td>
+            <td>
+                <select class="role-select" data-id="${user["id"]}">
+                    <option value="ADMINISTRADOR" ${currentRole === 'ADMINISTRADOR' ? 'selected' : ''}>ADMINISTRADOR</option>
+                    <option value="JORNALISTA" ${currentRole === 'JORNALISTA' ? 'selected' : ''}>JORNALISTA</option>
+                    <option value="COORDENADOR" ${currentRole === 'COORDENADOR' ? 'selected' : ''}>COORDENADOR</option>
+                </select>
+            </td>
             <td class="${statusClass}">${user["active"] ? 'Ativada' : 'Inativa'}</td>
             <td>
                 <div class="header-buttons">
@@ -85,6 +92,39 @@ document.addEventListener('DOMContentLoaded', () => {
         statusButtons.forEach(button => {
             button.addEventListener('click', handleStatusClick);
         });
+
+        const roleSelects = document.querySelectorAll('.role-select');
+        roleSelects.forEach(select => {
+            select.addEventListener('change', handleRoleChange);
+        });
+    }`x`
+
+    async function handleRoleChange(event) {
+        const userId = event.target.getAttribute('data-id');
+        const newRole = event.target.value;
+
+        try {
+            const response = await fetch(`/usuario/alterarRole/${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ role: newRole })
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao alterar a role do usuário');
+            }
+
+            const result = await response.json();
+            if (result.success) {
+                alert(result.message); // Exibe uma mensagem de sucesso
+            } else {
+                alert('Erro: ' + result.message);
+            }
+        } catch (error) {
+            console.error('Erro ao consumir a API:', error);
+        }
     }
 
 

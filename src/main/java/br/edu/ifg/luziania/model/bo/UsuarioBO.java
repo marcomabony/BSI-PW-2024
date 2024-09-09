@@ -96,4 +96,8 @@ public class UsuarioBO {
     private boolean checkPassword(String candidate, String hashed) {
         return BCrypt.checkpw(candidate, hashed);
     }
+
+    public void alterarRole(Long id, String novaRole) {
+        usuarioDAO.alterarRole(id, novaRole);
+    }
 }

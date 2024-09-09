@@ -31,4 +31,20 @@ public class UsuarioDAO {
             entityManager.merge(usuario);
         }
     }
+
+    @SuppressWarnings("JpaQueryApiInspection")
+    @Transactional
+    public void alterarRole(Long id, String novaRole) {
+        // Remover a role atual
+        entityManager.createNativeQuery("DELETE FROM tb006_user_roles WHERE tb006_user_roles.user_id = :userId")
+                .setParameter("userId", id)
+                .executeUpdate();
+
+        // Adicionar a nova role
+        entityManager.createNativeQuery("INSERT INTO tb006_user_roles (user_id, role) VALUES (:userId, :role)")
+                .setParameter("userId", id)
+                .setParameter("role", novaRole)
+                .executeUpdate();
+    }
+
 }
