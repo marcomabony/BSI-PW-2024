@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const newsTableBody = document.getElementById('news-table-body');
     const newsModal = document.getElementById('news-modal');
-    const modalContent = document.getElementById('full-news-content'); // Atualize o ID aqui
-    const modalTitle = document.getElementById('modal-news-title'); // Atualize o ID aqui se necessário
+    const modalContent = document.getElementById('full-news-content');
+    const modalTitle = document.getElementById('modal-news-title');
     const closeModal = document.getElementById('close-modal');
 
 
@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleViewDetailsClick(event) {
+        console.log('Botão de detalhes clicado'); // Adicione esta linha
         const content = event.target.getAttribute('data-content');
         const title = `Notícia ID ${event.target.getAttribute('data-id')}`;
 
@@ -124,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+
 
     // Carregue os dados
     async function loadNewsData() {
