@@ -30,11 +30,16 @@ public class UsuarioBO {
         usuarioDAO.save(usuario);
     }
 
+    public void atualizarStatus(Long id) {
+        usuarioDAO.toggleActiveStatus(id);
+    }
+
     public List<UsuarioDTO> getUsuarios() {
 
         return usuarioDAO.findAll().stream()
                 .map(usuario -> {
                     UsuarioDTO dto = new UsuarioDTO();
+                    dto.setId(usuario.id);
                     dto.setNome(usuario.getNome());
                     dto.setTelefone(usuario.getTelefone());
                     dto.setEmail(usuario.getEmail());

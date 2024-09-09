@@ -62,4 +62,22 @@ public class UsuarioController {
                     .entity(new ResponseUsuarioDTO(false, e.getMessage())).build();
         }
     }
+
+    @POST
+    @Path("atualizar/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response atualizarStatus(@PathParam("id") Long id){
+        try {
+            usuarioBO.atualizarStatus(id);
+            return Response.ok()
+                    .entity(new ResponseUsuarioDTO(true,
+                            MensagensEnum.SUCESSO_ATUALIZACAO_STATUS.getMensagem())).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity(new ResponseUsuarioDTO(false, e.getMessage())).build();
+        }
+    }
+
+
 }

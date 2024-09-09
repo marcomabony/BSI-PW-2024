@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const userTableBody = document.getElementById('user-table-body');
-    const errorModal = document.getElementById('error-modal');
-    const cancelBtn = document.getElementById('cancel-btn');
-    const exclusionReason = document.getElementById('exclusion-reason');
     let usersData = [];
 
     // Seleciona os elementos
@@ -54,20 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('Erro ao carregar os usuários');
             }
             usersData = await response.json();
-            console.log("Usuários carregados:", usersData);
             renderTable(usersData);
         } catch (error) {
             console.error('Erro ao consumir a API:', error);
         }
     }
 
-    function usuarios() {
-
-    }
-
-    function requisicoes() {
-
-    }
 
     function renderTable(users) {
         userTableBody.innerHTML = '';
@@ -77,35 +66,51 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusClass = user["active"] ? "status-active" : "status-inactive";
 
             newRow.innerHTML = `
-                <td>${user["nome"]}</td>
-                <td>${user["email"]}</td>
-                <td>${user["roles"][0]}</td>
-                <td class="${statusClass}">${user["active"] ? 'Ativada' : 'Inativa'}</td>
-                <td>
-                    <div class="header-buttons">
-                        <button class="delete-btn">${user["active"] ? 'Desativar' : 'Ativar'}</button>
-                    </div>
-                </td>
-            `;
+            <td>${user["nome"]}</td>
+            <td>${user["email"]}</td>
+            <td>${user["roles"][0]}</td>
+            <td class="${statusClass}">${user["active"] ? 'Ativada' : 'Inativa'}</td>
+            <td>
+                <div class="header-buttons">
+                    <button class="status-btn" data-id="${user["id"]}">
+                        ${user["active"] ? 'Desativar' : 'Ativar'}
+                    </button>
+                </div>
+            </td>
+        `;
             userTableBody.appendChild(newRow);
         });
 
-        const deleteButtons = document.querySelectorAll('.delete-btn');
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', handleDeleteClick);
+        const statusButtons = document.querySelectorAll('.status-btn');
+        statusButtons.forEach(button => {
+            button.addEventListener('click', handleStatusClick);
         });
     }
 
-    function handleDeleteClick(event) {
-        console.log("Botão de exclusão clicado");
-        exclusionReason.value = '';
-        errorModal.classList.remove('hidden');
-        console.log("Modal exibido");
-    }
 
-    cancelBtn.addEventListener('click', () => {
-        errorModal.classList.add('hidden');
-    });
+    async function handleStatusClick(event) {
+        const userId = event.target.getAttribute('data-id'); // Obtém o ID do usuário a partir do botão
+        try {
+            const response = await fetch(`/usuario/atualizar/${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) {
+                throw new Error('Erro ao atualizar o status do usuário');
+            }
+            const result = await response.json();
+            if (result.success) {
+                alert(result.message); // Exibe uma mensagem de sucesso
+                await loadUserData();  // Recarrega os dados da tabela
+            } else {
+                alert('Erro: ' + result.message);
+            }
+        } catch (error) {
+            console.error('Erro ao consumir a API:', error);
+        }
+    }
 
     loadUserData();
 });

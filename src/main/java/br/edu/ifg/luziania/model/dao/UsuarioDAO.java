@@ -22,4 +22,13 @@ public class UsuarioDAO {
     public List<Usuario> findAll() {
         return entityManager.createQuery("SELECT u FROM Usuario u", Usuario.class).getResultList();
     }
+
+    @Transactional
+    public void toggleActiveStatus(Long id) {
+        Usuario usuario = entityManager.find(Usuario.class, id);
+        if (usuario != null) {
+            usuario.setActive(!usuario.getActive());
+            entityManager.merge(usuario);
+        }
+    }
 }

@@ -13,7 +13,8 @@ public enum MensagensEnum {
 
     EMAIL_OU_SENHA_INVALIDO("02","E-mail ou senha incorretos."),
 
-    SUCESSO_CADASTRO("03","Usuário cadastrado com sucesso!")
+    SUCESSO_CADASTRO("03","Usuário cadastrado com sucesso!"),
+    SUCESSO_ATUALIZACAO_STATUS("43","Status do usuário atualizado com sucesso!")
 
     ;
 

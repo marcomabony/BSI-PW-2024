@@ -12,6 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuarioDTO {
+    private Long id;
     private String nome;
     private String apelido;
     private String telefone;
