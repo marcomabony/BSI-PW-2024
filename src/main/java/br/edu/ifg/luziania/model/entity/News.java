@@ -1,5 +1,6 @@
 package br.edu.ifg.luziania.model.entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,11 +9,9 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "tb007_news_migrado")
-public class News {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class News extends PanacheEntity {
 
     private String content;
+
     private boolean isFake;
 }

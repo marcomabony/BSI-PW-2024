@@ -3,6 +3,27 @@ function toggleMenu() {
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }
 
+async function salvarNoticia(newsDTO) {
+    try {
+        const response = await fetch('/api/news/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newsDTO)
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao salvar a notícia');
+        }
+
+        const result = await response;
+        console.log("result ::", result)
+    } catch (error) {
+        console.error('Erro:', error);
+    }
+}
+
 document.addEventListener('click', function(event) {
     const userBox = document.querySelector('.user-box');
     const menu = document.getElementById('dropdown-menu');
@@ -15,16 +36,21 @@ document.getElementById('textbox').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault(); // Prevenir nova linha ao pressionar Enter
         let textBox = document.getElementById('textbox');
-        let inputText = textBox.innerText.trim();
+        let content = textBox.innerText.trim();
 
-        if (inputText.length > 100) {
+        if (content.length > 100) {
             // Limpar a caixa de texto e iniciar a mensagem de "Aguarde"
             textBox.innerHTML = '';
             typeWriter(textBox, "Aguarde, estamos analisando essa notícia...", function() {
                 // Simular análise da notícia após a mensagem ser escrita
                 setTimeout(() => {
-                    let resultado = inputText.length % 2 === 0 ? 'Verdadeira' : 'Falsa';
+                    let resultado = content.length % 2 === 0 ? 'Verdadeira' : 'Falsa';
+                    let isFake = content.length % 2 === 0 ? 1 : 0;
                     textBox.innerHTML = '';
+                    salvarNoticia({
+                     isFake,
+                     content
+                    });
                     typeWriter(textBox, `Notícia analisada. Resultado: ${resultado}`);
                 }, 1000); // Simula um delay de 1 segundo após a mensagem de aguarde
             });
@@ -57,3 +83,7 @@ document.getElementById('textbox').addEventListener('blur', function() {
     let textBox = document.getElementById('textbox');
     textBox.innerHTML = ''; // Limpar a caixa de texto
 });
+
+function logout() {
+    window.location.href = '/login';
+}

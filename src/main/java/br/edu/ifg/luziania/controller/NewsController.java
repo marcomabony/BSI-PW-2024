@@ -33,4 +33,18 @@ public class NewsController {
 
         return Response.ok(new ResultDTO(message)).build();
     }
+
+    @POST
+    @Path("/save")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response saveNews(NewsDTO newsDTO) {
+
+        News news = new News();
+        news.setContent(newsDTO.getContent());
+        news.setFake(newsDTO.getIsFake() == 1);
+        newsBO.saveNews(news);
+
+        return Response.ok().build();
+    }
 }
