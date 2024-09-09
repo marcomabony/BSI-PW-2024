@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const userNameElement = document.querySelector('.user-name');
+
+    userNameElement.textContent = 'Usuario';
+
+    if (localStorage.key('user-name')) {
+        console.log('userName ::', localStorage.getItem('user-name'));
+        userNameElement.textContent = localStorage.getItem('user-name');
+    }
+});
+
+
 function toggleMenu() {
     const menu = document.getElementById('dropdown-menu');
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -60,6 +72,7 @@ document.getElementById('textbox').addEventListener('keydown', function(event) {
     }
 });
 
+
 // Função para simular efeito de digitação
 function typeWriter(element, text, callback) {
     let i = 0;
@@ -85,5 +98,6 @@ document.getElementById('textbox').addEventListener('blur', function() {
 });
 
 function logout() {
+    localStorage.clear();
     window.location.href = '/login';
 }

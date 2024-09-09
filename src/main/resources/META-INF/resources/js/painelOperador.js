@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modal-news-title');
     const closeModal = document.getElementById('close-modal');
 
+    const userNameElement = document.querySelector('.user-name');
+
+    userNameElement.textContent = 'Usuario';
+
+    if (localStorage.key('user-name')) {
+        console.log('userName ::', localStorage.getItem('user-name'));
+        userNameElement.textContent = localStorage.getItem('user-name');
+    }
 
     usuariosLink.addEventListener('click', () => {
         event.preventDefault();
@@ -118,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === newsModal) {
             if (newsModal) {
                 newsModal.style.display = 'none';
@@ -181,7 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
         roleSelects.forEach(select => {
             select.addEventListener('change', handleRoleChange);
         });
-    }`x`
+    }
+
+    `x`
 
     async function handleRoleChange(event) {
         const userId = event.target.getAttribute('data-id');
@@ -193,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ role: newRole })
+                body: JSON.stringify({role: newRole})
             });
 
             if (!response.ok) {
@@ -245,5 +255,7 @@ function toggleMenu() {
 }
 
 function logout() {
+    localStorage.clear();
+
     window.location.href = '/login';
 }

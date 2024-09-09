@@ -30,9 +30,6 @@ public class LoginController {
     @Inject
     UsuarioBO usuarioBO;
 
-    @Context
-    HttpServletRequest request;
-
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance getLoginPage() {
@@ -48,11 +45,11 @@ public class LoginController {
         Usuario usuario = usuarioBO.authenticate(loginDTO.getEmail(), loginDTO.getSenha());
         if (usuario != null) {
             return Response.ok()
-                    .entity(new ResponseLoginDTO(true, usuario.getRoles(), MensagensEnum.SUCESSO_LOGIN.getMensagem()))
+                    .entity(new ResponseLoginDTO(true, usuario.getRoles(), usuario.getNome(), MensagensEnum.SUCESSO_LOGIN.getMensagem()))
                     .build();
         } else {
             return Response.status(Response.Status.UNAUTHORIZED)
-                    .entity(new ResponseLoginDTO(false, null,
+                    .entity(new ResponseLoginDTO(false, null, null,
                             MensagensEnum.EMAIL_OU_SENHA_INVALIDO.getMensagem()))
                     .build();
         }

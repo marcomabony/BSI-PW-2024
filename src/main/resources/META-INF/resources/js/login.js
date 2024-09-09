@@ -16,7 +16,7 @@ document.getElementById('login-form').addEventListener('submit', function (event
             console.log(data);
             if (data.success) {
                 alert(data.message);
-
+                localStorage.setItem('user-name', data.userName);
                 if (data.roles.includes('ADMINISTRADOR')) {
                     window.location.href = '/paginaOperador';
                 } else if (data.roles.includes('COORDENADOR')) {

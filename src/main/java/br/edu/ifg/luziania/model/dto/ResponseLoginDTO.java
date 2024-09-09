@@ -22,5 +22,7 @@ public class ResponseLoginDTO implements Serializable {
 
     public Set<String> roles;
 
+    public String userName;
+
     public String message;
 }
