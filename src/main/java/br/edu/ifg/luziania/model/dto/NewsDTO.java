@@ -6,6 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class NewsDTO {
+    private Long id;
+
     private String content;
 
     private Integer isFake;

@@ -12,7 +12,7 @@
         <h2>Guardian of the Truth</h2>
         <ul>
             <li><a href="#" id="usuarios" class="active">Usuários</a></li>
-            <li><a href="#" id="requisicoes" >Requisições</a></li>
+            <li><a href="#" id="requisicoes" >Noticias</a></li>
         </ul>
     </div>
 
@@ -72,7 +72,7 @@
 
         <div id="ui-requests" class="hidden">
             <header>
-                <h1>Requisições</h1>
+                <h1>Noticias</h1>
             </header>
 
             <div id="user-list" class="user-list">
@@ -86,7 +86,7 @@
                         <th>Ação</th>
                     </tr>
                     </thead>
-                    <tbody id="user-table-body">
+                    <tbody id="news-table-body">
                     </tbody>
                 </table>
                 <div class="pagination">
@@ -109,6 +109,15 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="news-modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-news-title">Notícia</h2>
+        <p id="modal-news-content">Conteúdo da notícia...</p>
     </div>
 </div>
 

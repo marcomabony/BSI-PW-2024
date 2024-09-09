@@ -3,20 +3,28 @@ package br.edu.ifg.luziania.controller;
 import br.edu.ifg.luziania.model.bo.NewsBO;
 import br.edu.ifg.luziania.model.dto.NewsDTO;
 import br.edu.ifg.luziania.model.dto.ResultDTO;
+import br.edu.ifg.luziania.model.dto.UsuarioDTO;
 import br.edu.ifg.luziania.model.entity.News;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+import java.util.List;
 
 @Path("/api/news")
 public class NewsController {
 
     @Inject
     NewsBO newsBO;
+
+    @GET
+    @Path("/listar")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<NewsDTO> listarNews(){
+        return newsBO.getNews();
+    }
+
 
     @POST
     @Path("/verify")

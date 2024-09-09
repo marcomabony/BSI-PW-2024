@@ -9,17 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const uiUsuario = document.getElementById('ui-usuario');
     const uiRequests = document.getElementById('ui-requests');
 
-    // Função para alternar a classe "active"
-    function toggleActive(event) {
-        // Evita o comportamento padrão do link
+    const newsTableBody = document.getElementById('news-table-body');
+    const newsModal = document.getElementById('news-modal');
+    const modalContent = document.getElementById('full-news-content'); // Atualize o ID aqui
+    const modalTitle = document.getElementById('modal-news-title'); // Atualize o ID aqui se necessário
+    const closeModal = document.getElementById('close-modal');
 
-        // Remove a classe "active" de todos os links
-        usuariosLink.classList.remove('active');
-
-
-        // Adiciona a classe "active" ao link clicado
-
-    }
 
     usuariosLink.addEventListener('click', () => {
         event.preventDefault();
@@ -43,6 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
         uiUsuario.classList.add('hidden');
     });
 
+    // Atualizando evento para a aba de Requisições
+    requisicoesLink.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        usuariosLink.classList.remove('active');
+        requisicoesLink.classList.remove('active');
+
+        requisicoesLink.classList.add('active');
+
+        uiRequests.classList.remove('hidden');
+        uiUsuario.classList.add('hidden');
+
+        // Carrega as notícias
+        await loadNewsData();
+    });
 
     async function loadUserData() {
         try {
@@ -57,14 +67,86 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function renderNewsTable(news) {
+        newsTableBody.innerHTML = '';
+
+        news.forEach(newsItem => {
+            const newRow = document.createElement('tr');
+            const truncatedContent = newsItem.content.length > 10 ? newsItem.content.substring(0, 10) + '...' : newsItem.content;
+
+            const statusNews = newsItem.isFake === 1 ? "Verdadeira" : "Falsa";
+
+
+            newRow.innerHTML = `
+                <td>${newsItem.id}</td>
+                <td>${truncatedContent}</td>   
+                <td>${statusNews}</td>
+                <td>
+                    <button class="view-details" data-id="${newsItem.id}" data-content="${newsItem.content}">Ver Detalhes</button>
+                </td>
+            `;
+            newsTableBody.appendChild(newRow);
+        });
+
+        const viewButtons = document.querySelectorAll('.view-details');
+        viewButtons.forEach(button => {
+            button.addEventListener('click', handleViewDetailsClick);
+        });
+    }
+
+    function handleViewDetailsClick(event) {
+        const content = event.target.getAttribute('data-content');
+        const title = `Notícia ID ${event.target.getAttribute('data-id')}`;
+
+        if (modalTitle) {
+            modalTitle.textContent = title;
+        }
+        if (modalContent) {
+            modalContent.textContent = content;
+        }
+        if (newsModal) {
+            newsModal.style.display = 'block';
+        }
+    }
+
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            if (newsModal) {
+                newsModal.style.display = 'none';
+            }
+        });
+    }
+
+    window.onclick = function(event) {
+        if (event.target === newsModal) {
+            if (newsModal) {
+                newsModal.style.display = 'none';
+            }
+        }
+    };
+
+    // Carregue os dados
+    async function loadNewsData() {
+        try {
+            const response = await fetch('/api/news/listar');
+            if (!response.ok) {
+                throw new Error('Erro ao carregar as notícias');
+            }
+            const newsData = await response.json();
+            renderNewsTable(newsData);
+        } catch (error) {
+            console.error('Erro ao consumir a API:', error);
+        }
+    }
+
 
     function renderTable(users) {
         userTableBody.innerHTML = '';
 
         users.forEach(user => {
-            const newRow = document.createElement('tr');  // Criando a nova linha
+            const newRow = document.createElement('tr');
             const statusClass = user["active"] ? "status-active" : "status-inactive";
-            const currentRole = user["roles"][0]; // Supondo que está usando apenas uma role
+            const currentRole = user["roles"][0];
 
             newRow.innerHTML = `
             <td>${user["nome"]}</td>
