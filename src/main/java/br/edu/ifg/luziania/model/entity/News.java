@@ -23,6 +23,7 @@ public class News extends PanacheEntityBase {
     )
     private Long id;
 
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
     private boolean isFake;
