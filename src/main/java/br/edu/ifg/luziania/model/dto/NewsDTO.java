@@ -11,4 +11,6 @@ public class NewsDTO {
     private String content;
 
     private Integer isFake;
+
+    private String createdUser;
 }

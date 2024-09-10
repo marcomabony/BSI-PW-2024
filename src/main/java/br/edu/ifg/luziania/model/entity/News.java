@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @Entity
@@ -27,4 +29,10 @@ public class News extends PanacheEntityBase {
     private String content;
 
     private boolean isFake;
+
+    private String createdUser;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

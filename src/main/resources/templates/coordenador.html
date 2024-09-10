@@ -13,19 +13,14 @@
             <ul>
                 <li class="active">DataBase</li>
             </ul>
+            <button class="logout-btn">Logout</button>
         </aside>
+
         <main class="content">
             <header class="header">
                 <div class="greeting">
-                    <h1>Olá Luiz <span>👋</span></h1>
-                    <p>Bom dia</p>
-                </div>
-                <div class="user-info">
-                    <img src="./img/user-image.jpg" alt="Foto do Usuário" class="user-avatar">
-                    <span class="user-name">Luiz</span>
-                    <button class="dropdown-btn">
-                        <span class="dropdown-icon">▼</span>
-                    </button>
+                    <h1>Olá <span class="user-name"></span> <span>👋</span></h1>
+                    <p class="saudacao">Bom dia</p>
                 </div>
             </header>
             <section class="database">
@@ -37,41 +32,11 @@
                             <th>PM</th>
                             <th>Status</th>
                             <th>Última Atualização</th>
-                            <th>Project Timeline</th>
+                            <th>Data Criação</th>
                             <th>Ação</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="news-row">
-                            <td>1</td>
-                            <td class="news-title">A circulação de um comunicado</td>
-                            <td><img src="./img/user-avatar.png" alt="User 1" class="user-icon"></td>
-                            <td>
-                                <select class="status-select">
-                                    <option value="FATO" selected>FATO</option>
-                                    <option value="IMPRECISA">IMPRECISA</option>
-                                    <option value="FAKE">FAKE</option>
-                                </select>
-                            </td>
-                            <td>15 Mar 2021, 12:47 PM</td>
-                            <td>15 Aug 2021</td>
-                            <td class="action-buttons">
-                                <button class="action-btn view" title="Visualizar" data-news="1">👁</button>
-                                <button class="action-btn delete" title="Excluir" data-news="1">🗑</button>
-                            </td>
-                        </tr>
-                        <tr class="news-details" style="display: none;">
-                            <td colspan="7">
-                                <div class="details-content">
-                                    <p><strong>Verificação:</strong></p>
-                                    <p>Usuário: Luiz | Data: 15 Mar 2021, 12:47 PM</p>
-                                    <p>Status Atual: FATO</p>
-                                    <p>Comentário: Este comunicado foi verificado e está correto.</p>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Adicione mais notícias aqui seguindo o padrão -->
-                    </tbody>
+                    <tbody id="news-table-body"></tbody>
                 </table>
             </section>
         </main>

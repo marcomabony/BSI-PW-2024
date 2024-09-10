@@ -12,6 +12,32 @@ body {
     height: 100vh;
 }
 
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.logout-btn {
+    background-color: #343a40; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    margin-top: auto; /* Mantém o botão no final da sidebar */
+    font-size: 16px;
+    width: 10%;
+    position: absolute;
+    bottom: 0;
+}
+
+.logout-btn:hover {
+    background-color: #495057; /* Cor ao passar o mouse */
+    border-radius: 5%;
+}
+
+
+
 .sidebar {
     width: 240px;
     background-color: #343a40;
@@ -38,11 +64,18 @@ body {
 }
 
 .sidebar ul li.active {
-    background-color: #007bff;
+    background-color: #6c757d;
 }
 
 .sidebar ul li:hover {
     background-color: #6c757d;
+}
+
+#modalText {
+    white-space: pre-wrap; /* Mantém quebras de linha e quebra o texto quando necessário */
+    word-wrap: break-word; /* Força a quebra de palavras longas */
+    max-height: 300px; /* Define uma altura máxima para o modal */
+    overflow-y: auto; /* Adiciona uma barra de rolagem caso o texto seja muito longo */
 }
 
 .content {
@@ -320,4 +353,14 @@ body {
     border: 1px solid white;
     border-radius: 3px;
     padding: 2px 5px;
+}
+
+.delete-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.search-icon {
+    width: 32px;
+    height: 32px;
 }
