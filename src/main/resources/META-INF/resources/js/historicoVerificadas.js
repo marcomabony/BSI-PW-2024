@@ -1,4 +1,9 @@
-// HistoricoVeri.js
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.logout-btn').addEventListener('click', function() {
+        localStorage.clear();
+        window.location.href = '/login' ;
+    });
+});
 
 // Evento para abrir o modal ao clicar no botão de visualizar
 document.querySelectorAll('.view-btn').forEach(button => {
@@ -44,19 +49,11 @@ window.addEventListener('click', function (event) {
         }, 300);  // Delay para fechar após a animação
     }
 });
- // HistoricoVeri.js
+// // Fecha o dropdown se o usuário clicar fora dele
+// window.addEventListener('click', function (event) {
+//     if (!event.target.matches('.dropdown-btn') && !event.target.closest('.user-profile')) {
+//         const userProfile = document.querySelector('.user-profile');
+//         userProfile.classList.remove('active');
+//     }
+// });
 
-// Evento para abrir e fechar o dropdown
-document.getElementById('dropdownBtn').addEventListener('click', function (event) {
-    event.stopPropagation(); // Previne que o evento de clique feche imediatamente o dropdown
-    const userProfile = document.querySelector('.user-profile');
-    userProfile.classList.toggle('active');
-});
-
-// Fecha o dropdown se o usuário clicar fora dele
-window.addEventListener('click', function (event) {
-    if (!event.target.matches('.dropdown-btn') && !event.target.closest('.user-profile')) {
-        const userProfile = document.querySelector('.user-profile');
-        userProfile.classList.remove('active');
-    }
-});

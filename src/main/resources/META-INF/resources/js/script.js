@@ -103,3 +103,7 @@ function logout() {
     localStorage.clear();
     window.location.href = '/login';
 }
+
+function historico() {
+    window.location.href = '/historicoVerificadas';
+}
