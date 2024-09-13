@@ -26,10 +26,18 @@ public class AuthController {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response login(@FormParam("username") String username,
                           @FormParam("password") String password) {
-        if (userService.authenticate(username, password) != null) {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("email", username);
-            return Response.seeOther(URI.create("/protected/index.html")).build();
+        Usuario user = userService.authenticate(username, password);
+        if (user != null) {
+            if (user.getActive()) {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("email", username);
+                return Response.seeOther(URI.create("/protected/index.html")).build();
+            } else {
+                return Response.status(Response.Status.FORBIDDEN)
+                        .entity("Usuario desativado")
+                        .build();
+            }
+
         } else {
             return Response.status(Response.Status.UNAUTHORIZED)
                     .entity("Credenciais inválidas.")
