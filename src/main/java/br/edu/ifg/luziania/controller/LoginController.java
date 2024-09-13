@@ -44,9 +44,17 @@ public class LoginController {
 
         Usuario usuario = usuarioBO.authenticate(loginDTO.getEmail(), loginDTO.getSenha());
         if (usuario != null) {
-            return Response.ok()
-                    .entity(new ResponseLoginDTO(true, usuario.getRoles(), usuario.getNome(), MensagensEnum.SUCESSO_LOGIN.getMensagem()))
-                    .build();
+            if (usuario.getActive()) {
+                return Response.ok()
+                        .entity(new ResponseLoginDTO(true, usuario.getRoles(), usuario.getNome(), MensagensEnum.SUCESSO_LOGIN.getMensagem()))
+                        .build();
+            } else {
+                return Response.status(Response.Status.UNAUTHORIZED)
+                        .entity(new ResponseLoginDTO(false, null, null,
+                                MensagensEnum.USUARIO_DESATIVADO.getMensagem()))
+                        .build();
+            }
+
         } else {
             return Response.status(Response.Status.UNAUTHORIZED)
                     .entity(new ResponseLoginDTO(false, null, null,
