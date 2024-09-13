@@ -13,6 +13,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Path("usuario")
 public class UsuarioController {
@@ -27,10 +28,13 @@ public class UsuarioController {
     UsuarioBO usuarioBO;
 
     @GET
-    @Path("listar")
+    @Path("listar/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<UsuarioDTO> listarUsuarios(){
-        return usuarioBO.getUsuarios();
+    public List<UsuarioDTO> listarUsuarios(@PathParam("id") Long id){
+        return usuarioBO.getUsuarios()
+                .stream()
+                .filter(usuario -> !Objects.equals(usuario.getId(), id))
+                .toList();
     }
 
     @GET

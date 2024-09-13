@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadUserData() {
         try {
-            const response = await fetch('/usuario/listar');
+            let userId = localStorage.getItem('user-name-id');
+            const response = await fetch(`/usuario/listar/${userId}`);
             if (!response.ok) {
                 throw new Error('Erro ao carregar os usuários');
             }

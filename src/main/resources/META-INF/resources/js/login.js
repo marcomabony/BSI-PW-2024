@@ -17,6 +17,7 @@ document.getElementById('login-form').addEventListener('submit', function (event
             if (data.success) {
                 alert(data.message);
                 localStorage.setItem('user-name', data.userName);
+                localStorage.setItem('user-name-id', data.id);
                 if (data.roles.includes('ADMINISTRADOR')) {
                     window.location.href = '/paginaOperador';
                 } else if (data.roles.includes('COORDENADOR')) {
