@@ -7,65 +7,63 @@
     <link rel="stylesheet" href="../css/coordenador.css">
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <h2>Dashboard</h2>
-            <ul>
-                <li class="active">DataBase</li>
-            </ul>
-            <button class="logout-btn">Logout</button>
-        </aside>
+<div class="container">
+    <aside class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li class="active">DataBase</li>
+        </ul>
+        <button class="logout-btn">Logout</button>
+    </aside>
 
-        <main class="content">
-            <header class="header">
-                <div class="greeting">
-                    <h1>Olá <span class="user-name"></span> <span>👋</span></h1>
-                    <p class="saudacao">Bom dia</p>
-                </div>
-            </header>
-            <section class="database">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Prévia da Notícia</th>
-                            <th>PM</th>
-                            <th>Status</th>
-                            <th>Última Atualização</th>
-                            <th>Data Criação</th>
-                            <th>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody id="news-table-body"></tbody>
-                </table>
-            </section>
-        </main>
-    </div>
-
-    <!-- Modal para visualizar notícia -->
-    <div id="newsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Texto Completo da Notícia</h2>
-            <p id="modalText">
-                <!-- O texto da notícia vai aqui -->
-            </p>
-        </div>
-    </div>
-
-    <!-- Modal de exclusão -->
-    <div id="deleteModal" class="modal">
-        <div class="modal-content">
-            <h3>Não é possível excluir esse usuário.</h3>
-            <p>Você não tem permissão para essa ação. Por favor, solicite a exclusão ao Administrador Geral.</p>
-            <input type="text" placeholder="Digite o motivo da solicitação" class="input-reason">
-            <div class="modal-actions">
-                <button class="btn btn-primary">Solicitar</button>
-                <button class="btn btn-secondary close-btn">Cancelar</button>
+    <main class="content">
+        <header class="header">
+            <div class="greeting">
+                <h1>Olá <span class="user-name"></span> 👋</h1>
+                <p class="saudacao"></p>
             </div>
+        </header>
+        <section class="database">
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Prévia da Notícia</th>
+                    <th>Usuário</th>
+                    <th>Status</th>
+                    <th>Última Atualização</th>
+                    <th>Data Criação</th>
+                    <th>Ação</th>
+                </tr>
+                </thead>
+                <tbody id="news-table-body"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<!-- Modal para visualizar notícia -->
+<div id="newsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Texto Completo da Notícia</h2>
+        <p id="modalText"></p>
+    </div>
+</div>
+
+<!-- Modal de exclusão -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <h3>Não é possível excluir esse usuário.</h3>
+        <p>Você não tem permissão para essa ação. Por favor, solicite a exclusão ao Administrador Geral.</p>
+        <input type="text" placeholder="Digite o motivo da solicitação" class="input-reason">
+        <div class="modal-actions">
+            <button class="btn btn-primary">Solicitar</button>
+            <button class="btn btn-secondary close-btn">Cancelar</button>
         </div>
     </div>
+</div>
 
-    <script src="../js/coordenador.js"></script>
+<script src="../js/coordenador.js"></script>
 </body>
 </html>

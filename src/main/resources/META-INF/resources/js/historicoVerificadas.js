@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.logout-btn').addEventListener('click', function() {
         localStorage.clear();
-        window.location.href = '/login' ;
+        window.location.href = '/index/fakenews' ;
     });
 });
 
