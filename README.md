@@ -8,9 +8,9 @@ Este projeto é parte integrante da disciplina de Programação Web e tem como o
 •	Java para a lógica de negócios e funcionalidades do servidor.
 
 # A aplicação é um verificador de fake news e conta com três tipos de usuários, cada um com permissões específicas:
-1.	Administrador Geral: Possui o controle total sobre o sistema, podendo cadastrar e excluir usuários, além de excluir e alterar o status das notícias verificadas.
-2.	Coordenador: Responsável pela manutenção do banco de dados, o Coordenador tem permissão para alterar o status das notícias. No entanto, caso seja necessário excluir uma notícia, ele deve solicitar essa ação ao Administrador Geral.
-3.	Jornalista: Tem acesso ao verificador de fake news, que pode fornecer como resposta se uma notícia é verdadeira, falsa ou imprecisa. Além disso, o Jornalista pode acessar o histórico de todas as notícias que verificou nos últimos 30 dias.
+1.	Administrador Geral: Possui o controle total sobre o sistema, podendo cadastrar e excluir usuários.
+2.	Coordenador: Responsável pela manutenção do banco de dados, o Coordenador tem permissão para alterar o status das notícias, e excluir uma notícia. 
+3.	Jornalista: Tem acesso ao verificador de fake news, que pode fornecer como resposta se uma notícia é verdadeira, falsa. Além disso, o Jornalista pode acessar o histórico de todas as notícias que verificou nos últimos 30 dias.
 
 # Essa estrutura de usuários garante que a aplicação seja gerida de forma organizada e segura, com funções bem definidas para cada tipo de usuário.
 A aplicação possui 2 casos de uso principais:
@@ -30,9 +30,9 @@ A aplicação possui 2 casos de uso principais:
 •	Fluxo Principal:
 1.	O Coordenador acessa a interface de administração e navega até o banco de dados de notícias verificadas.
 2.	O Coordenador seleciona uma notícia específica cuja verificação já foi realizada.
-3.	O Coordenador pode alterar o status da notícia, modificando sua classificação para "Verdadeira ", "Falsa" ou “Imprecisa”.
-4.	Caso o Coordenador identifique que a notícia não deveria permanecer no banco de dados, ele preenche um formulário com uma justificativa detalhada para a exclusão.
-5.	O Coordenador então submete uma solicitação de exclusão ao Administrador Geral, que será responsável por aprovar ou rejeitar a remoção da notícia do sistema.
+3.	O Coordenador pode alterar o status da notícia, modificando sua classificação para "Verdadeira ", "Falsa".
+4.	Caso o Coordenador identifique que a notícia não deveria permanecer no banco de dados, ele pfaz a para a exclusão.
+
 O projeto possui os seguintes requisitos funcionais e não funcionais: 
 
 # Requisitos Funcionais:
