@@ -59,11 +59,11 @@ document.getElementById('textbox').addEventListener('keydown', function(event) {
                     let resultado = content.length % 2 === 0 ? 'Verdadeira' : 'Falsa';
                     let isFake = content.length % 2 === 0 ? 1 : 0;
                     textBox.innerHTML = '';
-                    let createdUser = localStorage.getItem('user-name');
+                    let userId  = localStorage.getItem('user-name-id');
                     salvarNoticia({
                      isFake,
                      content,
-                     createdUser
+                     userId
                     });
                     typeWriter(textBox, `Notícia analisada. Resultado: ${resultado}`);
                 }, 1000); // Simula um delay de 1 segundo após a mensagem de aguarde

@@ -7,15 +7,22 @@ import br.edu.ifg.luziania.model.dto.UsuarioDTO;
 import br.edu.ifg.luziania.model.entity.News;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
+@RequiredArgsConstructor(onConstructor = @__(@Inject))
 public class NewsBO {
 
-    @Inject
-    NewsDAO newsDAO;
+    private final NewsDAO newsDAO;
+
+    private final ModelMapper modelMapper;
+
+    private final UsuarioBO usuarioBO;
 
     public boolean verifyNews(String content) {
         return content.toLowerCase().contains("fake");
@@ -26,7 +33,17 @@ public class NewsBO {
     }
 
     public NewsResponseDTO getNews(Long id) {
-        return newsDAO.find(id);
+        NewsResponseDTO newsResponseDTO = newsDAO.find(id);
+        newsResponseDTO.setCreatedUser(usuarioBO.findById(newsResponseDTO.getUserId()).getNome());
+        return newsResponseDTO;
+    }
+
+    public List<NewsResponseDTO> getAllNews(Long id) {
+        List<News> usuarios = newsDAO.findAll(id)
+                .stream()
+                .toList();
+        return modelMapper.map(usuarios, new TypeToken<List<NewsResponseDTO>>() {
+        }.getType());
     }
 
     public List<NewsResponseDTO> getNews() {
@@ -37,7 +54,7 @@ public class NewsBO {
                     dto.setId(news.getId());
                     dto.setContent(news.getContent());
                     dto.setIsFake(news.isFake() ? 1 : 0);
-                    dto.setCreatedUser(news.getCreatedUser());
+                    dto.setCreatedUser(usuarioBO.findById(news.getUserId()).getNome());
                     dto.setCreatedAt(news.getCreatedAt());
                     dto.setUpdatedAt(news.getUpdatedAt());
                     return dto;

@@ -3,6 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.clear();
         window.location.href = '/index/fakenews' ;
     });
+
+
+    async function loadNewsData() {
+        try {
+            let id = localStorage.getItem('user-name-id');
+            const response = await fetch(`/api/news/listar/${id}`);
+            if (!response.ok) {
+                throw new Error('Erro ao carregar as notícias');
+            }
+            const newsData = await response.json();
+            console.log('Noticias ::', newsData)
+        } catch (error) {
+            console.error('Erro ao consumir a API:', error);
+        }
+    }
+
+    loadNewsData();
 });
 
 // Evento para abrir o modal ao clicar no botão de visualizar

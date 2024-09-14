@@ -30,9 +30,10 @@ public class News extends PanacheEntityBase {
 
     private boolean isFake;
 
-    private String createdUser;
-
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 }

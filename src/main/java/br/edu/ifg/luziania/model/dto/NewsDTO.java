@@ -13,4 +13,6 @@ public class NewsDTO {
     private Integer isFake;
 
     private String createdUser;
+
+    private Long userId;
 }

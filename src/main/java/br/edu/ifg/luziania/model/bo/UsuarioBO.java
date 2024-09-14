@@ -81,6 +81,10 @@ public class UsuarioBO {
         user.persist();
     }
 
+    public Usuario findById(Long id) {
+        return Usuario.find("id", id).firstResult();
+    }
+
     public Usuario authenticate(String username, String password) {
         Usuario user = Usuario.find("email", username).firstResult();
         if (user != null && checkPassword(password, user.getSenha())) {

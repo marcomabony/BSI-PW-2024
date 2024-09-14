@@ -1,25 +1,28 @@
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.NewsBO;
+import br.edu.ifg.luziania.model.bo.UsuarioBO;
 import br.edu.ifg.luziania.model.dto.NewsDTO;
 import br.edu.ifg.luziania.model.dto.NewsResponseDTO;
 import br.edu.ifg.luziania.model.dto.NewsStatusDTO;
 import br.edu.ifg.luziania.model.dto.ResultDTO;
 import br.edu.ifg.luziania.model.entity.News;
+import br.edu.ifg.luziania.model.entity.Usuario;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
 @Path("/api/news")
+@RequiredArgsConstructor(onConstructor = @__(@Inject))
 public class NewsController {
 
-    @Inject
-    NewsBO newsBO;
+    private final NewsBO newsBO;
 
     @GET
     @Path("/{id}")
@@ -34,6 +37,13 @@ public class NewsController {
     @Produces(MediaType.APPLICATION_JSON)
     public List<NewsResponseDTO> listarNews(){
         return newsBO.getNews();
+    }
+
+    @GET
+    @Path("/listar/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<NewsResponseDTO> listarNewsByUser(@PathParam("id") Long id){
+        return newsBO.getAllNews(id);
     }
 
 
@@ -62,9 +72,10 @@ public class NewsController {
         News news = new News();
         news.setContent(newsDTO.getContent());
         news.setFake(newsDTO.getIsFake() == 1);
-        news.setCreatedUser(newsDTO.getCreatedUser());
         news.setCreatedAt(LocalDateTime.now());
         news.setUpdatedAt(LocalDateTime.now());
+        news.setUserId(news.getUserId());
+
         newsBO.saveNews(news);
 
         return Response.ok().build();

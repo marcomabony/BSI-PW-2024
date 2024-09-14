@@ -26,6 +26,12 @@ public class NewsDAO {
         return entityManager.createQuery("SELECT n FROM News n", News.class).getResultList();
     }
 
+    public List<News> findAll(Long id) {
+        return entityManager.createQuery("SELECT n FROM News n WHERE n.user_id =:id", News.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
+
     @Transactional
     public boolean excluirNews(Long id) {
         News news = News.findById(id);
@@ -55,9 +61,9 @@ public class NewsDAO {
         dto.setId(news.getId());
         dto.setContent(news.getContent());
         dto.setIsFake(news.isFake() ? 1 : 0);
-        dto.setCreatedUser(news.getCreatedUser());
         dto.setCreatedAt(news.getCreatedAt());
         dto.setUpdatedAt(news.getUpdatedAt());
+        dto.setUserId(news.getUserId());
         return dto;
     }
 }
