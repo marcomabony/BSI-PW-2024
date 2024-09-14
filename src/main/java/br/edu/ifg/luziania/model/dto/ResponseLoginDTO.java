@@ -18,11 +18,18 @@ public class ResponseLoginDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 8146335801730327778L;
 
-    public Boolean success;
+    private Boolean success;
 
-    public Set<String> roles;
+    private Set<String> roles;
 
-    public String userName;
+    private Long id;
 
-    public String message;
+    private String userName;
+
+    private String message;
+
+    public ResponseLoginDTO(Boolean success, String message) {
+        this.success = success;
+        this.message = message;
+    }
 }
