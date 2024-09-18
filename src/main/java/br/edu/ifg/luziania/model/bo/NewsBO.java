@@ -39,11 +39,19 @@ public class NewsBO {
     }
 
     public List<NewsResponseDTO> getAllNews(Long id) {
-        List<News> usuarios = newsDAO.findAll(id)
-                .stream()
-                .toList();
-        return modelMapper.map(usuarios, new TypeToken<List<NewsResponseDTO>>() {
-        }.getType());
+        return  newsDAO.findAll(id).stream()
+                .map(news -> {
+                    NewsResponseDTO dto = new NewsResponseDTO();
+                    dto.setTitle(news.getContent().substring(0, 20));
+                    dto.setId(news.getId());
+                    dto.setContent(news.getContent());
+                    dto.setIsFake(news.isFake() ? 1 : 0);
+                    dto.setCreatedUser(usuarioBO.findById(news.getUserId()).getNome());
+                    dto.setCreatedAt(news.getCreatedAt());
+                    dto.setUpdatedAt(news.getUpdatedAt());
+                    return dto;
+                })
+                .collect(Collectors.toList());
     }
 
     public List<NewsResponseDTO> getNews() {

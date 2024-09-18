@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 @Setter
 public class NewsResponseDTO extends NewsDTO {
 
+    private String title;
+
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;

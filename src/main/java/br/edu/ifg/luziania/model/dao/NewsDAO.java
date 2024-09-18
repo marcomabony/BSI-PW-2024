@@ -27,7 +27,7 @@ public class NewsDAO {
     }
 
     public List<News> findAll(Long id) {
-        return entityManager.createQuery("SELECT n FROM News n WHERE n.user_id =:id", News.class)
+        return entityManager.createQuery("SELECT n FROM News n WHERE n.userId =:id", News.class)
                 .setParameter("id", id)
                 .getResultList();
     }

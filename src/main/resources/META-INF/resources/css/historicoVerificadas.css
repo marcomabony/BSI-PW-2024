@@ -258,7 +258,7 @@ body {
     color: #f8f9fa;
 }
 
-.logout-btn {
+.back-btn {
     background-color: #343a40; /* Cor de fundo */
     color: white; /* Cor do texto */
     padding: 10px 20px;
@@ -270,9 +270,4 @@ body {
     width: 10%;
     position: absolute;
     bottom: 0;
-}
-
-.logout-btn:hover {
-    background-color: #495057; /* Cor ao passar o mouse */
-    border-radius: 5%;
 }
