@@ -10,7 +10,7 @@ Este projeto é parte integrante da disciplina de Programação Web e tem como o
 # A aplicação é um verificador de fake news e conta com três tipos de usuários, cada um com permissões específicas:
 1.	Administrador Geral: Possui o controle total sobre o sistema, podendo cadastrar e excluir usuários.
 2.	Coordenador: Responsável pela manutenção do banco de dados, o Coordenador tem permissão para alterar o status das notícias, e excluir uma notícia. 
-3.	Jornalista: Tem acesso ao verificador de fake news, que pode fornecer como resposta se uma notícia é verdadeira, falsa. Além disso, o Jornalista pode acessar o histórico de todas as notícias que verificou nos últimos 30 dias.
+3.	Jornalista: Tem acesso ao verificador de fake news, que pode fornecer como resposta se uma notícia é verdadeira ou falsa. Além disso, o Jornalista pode acessar o histórico de todas as notícias que verificou nos últimos 30 dias.
 
 # Essa estrutura de usuários garante que a aplicação seja gerida de forma organizada e segura, com funções bem definidas para cada tipo de usuário.
 A aplicação possui 2 casos de uso principais:
@@ -22,7 +22,7 @@ A aplicação possui 2 casos de uso principais:
 2.	O usuário insere o texto da notícia no campo designado, com um mínimo de 100 caracteres.
 3.	Após colar a notícia, o usuário aciona o comando "Verificar" (pode ser um botão ou um evento de tecla "Enter").
 4.	O sistema processa o texto utilizando algoritmos de classificação de aprendizado de máquina (por exemplo, CNN, SVM ou Naive Bayes) para analisar a veracidade da notícia.
-5.	O sistema retorna uma classificação ao usuário, indicando se a notícia é "Verdadeira", "Falsa" ou "Imprecisa".
+5.	O sistema retorna uma classificação ao usuário, indicando se a notícia é "Verdadeira" ou "Falsa".
 6.	A notícia e sua classificação são armazenadas no banco de dados para possível revisão futura.
 
 # 2. Gestão de Estado e Solicitação de Exclusão
@@ -30,10 +30,10 @@ A aplicação possui 2 casos de uso principais:
 •	Fluxo Principal:
 1.	O Coordenador acessa a interface de administração e navega até o banco de dados de notícias verificadas.
 2.	O Coordenador seleciona uma notícia específica cuja verificação já foi realizada.
-3.	O Coordenador pode alterar o status da notícia, modificando sua classificação para "Verdadeira ", "Falsa".
-4.	Caso o Coordenador identifique que a notícia não deveria permanecer no banco de dados, ele pfaz a para a exclusão.
+3.	O Coordenador pode alterar o status da notícia, modificando sua classificação para "Verdadeira " ou "Falsa".
+4.	Caso o Coordenador identifique que a notícia não deveria permanecer no banco de dados, ele faz a para a exclusão.
 
-O projeto possui os seguintes requisitos funcionais e não funcionais: 
+O projeto possui os seguintes requisitos funcionais e não funcionais:
 
 # Requisitos Funcionais:
 1.	Autenticação de Usuário: O sistema deve exigir login com e-mail e senha, permitindo o acesso à aplicação apenas para usuários autenticados.
@@ -52,6 +52,6 @@ O projeto possui os seguintes requisitos funcionais e não funcionais:
 
 # Colaboradores 
 
-* [Miguel Ângelo Pinheiro Fernandes  ](https://github.com/MiguelFernandes20)
-* [Marco Filipe Mabony ](https://github.com/marcomabony)
+* [Miguel Ângelo Pinheiro Fernandes ](https://github.com/MiguelFernandes20)
+* [Marco Filipe ](https://github.com/marcomabony)
 
