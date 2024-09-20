@@ -80,18 +80,19 @@ function attachEventListeners() {
         }
     });
 
-    document.querySelectorAll('.action-btn.view').forEach(button => {
-        button.addEventListener('click', function () {
-            const newsId = this.getAttribute('data-news-id');
-            abrirModal(newsId);
-        });
-    });
+    // Usar event delegation para os botões de visualizar e excluir
+    const newsTableBody = document.getElementById('news-table-body');
 
-    document.querySelectorAll('.action-btn.delete').forEach(button => {
-        button.addEventListener('click', function () {
-            const newsId = this.getAttribute('data-news-id');
+    newsTableBody.addEventListener('click', function(event) {
+        if (event.target.closest('.action-btn.view')) {
+            const newsId = event.target.closest('.action-btn.view').getAttribute('data-news-id');
+            abrirModal(newsId);
+        }
+
+        if (event.target.closest('.action-btn.delete')) {
+            const newsId = event.target.closest('.action-btn.delete').getAttribute('data-news-id');
             excluirNoticia(newsId);
-        });
+        }
     });
 
     document.querySelectorAll('.close-btn').forEach(button => {
@@ -110,6 +111,7 @@ function attachEventListeners() {
         }
     });
 }
+
 
 function abrirModal(newsId) {
     fetch(`/api/news/${newsId}`)
