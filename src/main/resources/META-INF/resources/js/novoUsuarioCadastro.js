@@ -1,3 +1,25 @@
+// Validação do nome para conter apenas letras e ter no máximo 130 caracteres
+document.getElementById('nome').addEventListener('blur', function() {
+    const nome = this.value;
+    const nomeRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{1,130}$/; // Aceita letras (incluindo acentos) e espaços, até 130 caracteres
+
+    if (!nomeRegex.test(nome)) {
+        alert('Nome inválido. Informe apenas letras e no máximo 130 caracteres.');
+        this.value = ''; // Limpa o campo de nome se inválido
+    }
+});
+
+// Validação do apelido para conter apenas letras e ter no máximo 130 caracteres
+document.getElementById('apelido').addEventListener('blur', function() {
+    const apelido = this.value;
+    const nomeRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{1,50}$/; // Aceita letras (incluindo acentos) e espaços, até 130 caracteres
+
+    if (!nomeRegex.test(apelido)) {
+        alert('Nome inválido. Informe apenas letras e no máximo 130 caracteres.');
+        this.value = ''; // Limpa o campo de nome se inválido
+    }
+});
+
 
 document.getElementById('cep').addEventListener('blur', function() {
     let cep = this.value.replace(/\D/g, ''); // Remove qualquer caractere não numérico do CEP

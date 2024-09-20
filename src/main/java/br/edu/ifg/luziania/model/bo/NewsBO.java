@@ -65,6 +65,8 @@ public class NewsBO {
                     dto.setIsFake(news.isFake() ? 1 : 0);
                     if (user != null) {
                         dto.setCreatedUser(user.getNome());
+                    } else {
+                        dto.setCreatedUser("nao informado");
                     }
                     dto.setCreatedAt(news.getCreatedAt());
                     dto.setUpdatedAt(news.getUpdatedAt());
