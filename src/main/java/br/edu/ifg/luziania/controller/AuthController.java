@@ -1,3 +1,6 @@
+// Controla logout e registro.
+// O método logout invalida a sessão e redireciona para a página de login.
+// O método register verifica duplicação de usuário antes de criar um novo.
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.UsuarioBO;

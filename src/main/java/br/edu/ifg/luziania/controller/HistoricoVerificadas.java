@@ -1,3 +1,4 @@
+// Ele é utilizado para exibir o histórico de notícias verificadas ao ser acessado pelo navegador.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;

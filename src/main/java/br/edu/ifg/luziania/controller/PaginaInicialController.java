@@ -1,3 +1,5 @@
+// Esse controlador é responsável por renderizar e exibir a página inicial
+// da aplicação quando acessada pela URL correspondente.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;

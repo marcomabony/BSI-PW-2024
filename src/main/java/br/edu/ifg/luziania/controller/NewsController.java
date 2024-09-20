@@ -1,3 +1,5 @@
+// Esse controlador gerencia o ciclo de vida das notícias no sistema de verificação,
+// incluindo criação, verificação, atualização, listagem e exclusão de notícias.
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.NewsBO;

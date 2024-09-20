@@ -1,3 +1,5 @@
+// Esse controlador é utilizado para exibir a interface do operador e
+// gerenciar suas funções no sistema.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;

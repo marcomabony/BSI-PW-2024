@@ -1,3 +1,5 @@
+// Esse controlador gerencia o processo de autenticação,
+// validando as credenciais e retornando o status do login.
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.UsuarioBO;

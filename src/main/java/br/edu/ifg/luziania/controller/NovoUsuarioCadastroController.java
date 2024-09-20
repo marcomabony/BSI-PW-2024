@@ -1,3 +1,5 @@
+// Esse controlador é responsável por carregar a página de cadastro
+// de novos usuários no sistema quando acessada pela URL correspondente.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;

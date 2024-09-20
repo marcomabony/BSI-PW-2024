@@ -1,3 +1,6 @@
+// Esse controlador gerencia todas as operações necessárias para a manipulação
+// de usuários no sistema, como cadastro, visualização, atualização de status
+// e alteração de papéis (roles).
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.UsuarioBO;

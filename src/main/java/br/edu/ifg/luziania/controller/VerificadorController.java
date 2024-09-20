@@ -1,3 +1,5 @@
+// Esse controlador é responsável por renderizar e exibir a interface para
+// verificação de notícias falsas no sistema quando a URL correspondente é acessada.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;

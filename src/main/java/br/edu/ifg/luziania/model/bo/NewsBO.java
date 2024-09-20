@@ -58,11 +58,14 @@ public class NewsBO {
 
         return newsDAO.findAll().stream()
                 .map(news -> {
+                    var user = usuarioBO.findById(news.getUserId());
                     NewsResponseDTO dto = new NewsResponseDTO();
                     dto.setId(news.getId());
                     dto.setContent(news.getContent());
                     dto.setIsFake(news.isFake() ? 1 : 0);
-                    dto.setCreatedUser(usuarioBO.findById(news.getUserId()).getNome());
+                    if (user != null) {
+                        dto.setCreatedUser(user.getNome());
+                    }
                     dto.setCreatedAt(news.getCreatedAt());
                     dto.setUpdatedAt(news.getUpdatedAt());
                     return dto;

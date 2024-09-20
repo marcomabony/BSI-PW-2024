@@ -1,3 +1,4 @@
+// É utilizado para renderizar a página do coordenador ao ser acessada via navegador.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;

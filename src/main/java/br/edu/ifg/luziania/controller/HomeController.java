@@ -1,3 +1,4 @@
+// Esse controlador serve para exibir a página inicial do sistema quando a rota principal for acessada.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;

@@ -1,3 +1,6 @@
+//Esse código configura o ModelMapper para mapear objetos,
+// ignorando valores nulos. Isso garante que, ao atualizar informações,
+// dados existentes não sejam substituídos por valores vazios.
 package br.edu.ifg.luziania.config;
 
 import jakarta.enterprise.context.ApplicationScoped;

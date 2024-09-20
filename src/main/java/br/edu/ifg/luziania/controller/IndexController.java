@@ -1,3 +1,5 @@
+//Esse controlador é responsável por exibir a página
+// relacionada ao index de fake news quando acessada através da URL definida.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;

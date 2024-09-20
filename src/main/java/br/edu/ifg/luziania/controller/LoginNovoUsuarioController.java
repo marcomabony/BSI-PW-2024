@@ -1,3 +1,5 @@
+//Esse controlador é usado para carregar
+// a página de login destinada a novos usuários, fornecendo a interface HTML correspondente.
 package br.edu.ifg.luziania.controller;
 
 import io.quarkus.qute.Template;
